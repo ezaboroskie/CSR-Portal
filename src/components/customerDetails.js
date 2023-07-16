@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
   const [customer, setCustomer] = useState(null);
   const [editedCustomer, setEditedCustomer] = useState({});
-  const [isEditing, setIsEditing] = useState(false); // New state to track editing mode
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     const selectedCustomer = customerList.find(
@@ -19,12 +19,38 @@ const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
     }
   }, [customerId, customerList]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, vehicleIndex, field, isInactive) => {
     const { name, value } = e.target;
-    setEditedCustomer((prevCustomer) => ({
-      ...prevCustomer,
-      [name]: value,
-    }));
+
+    setEditedCustomer((prevCustomer) => {
+      const updatedCustomer = { ...prevCustomer };
+
+      if (isInactive) {
+        const inactiveVehicles = [...(updatedCustomer.inactiveVehicles || [])];
+        if (inactiveVehicles[vehicleIndex]) {
+          inactiveVehicles[vehicleIndex] = {
+            ...inactiveVehicles[vehicleIndex],
+            [field]: value,
+          };
+        } else {
+          inactiveVehicles[vehicleIndex] = { [field]: value };
+        }
+        updatedCustomer.inactiveVehicles = inactiveVehicles;
+      } else {
+        const activeVehicles = [...(updatedCustomer.activeVehicles || [])];
+        if (activeVehicles[vehicleIndex]) {
+          activeVehicles[vehicleIndex] = {
+            ...activeVehicles[vehicleIndex],
+            [field]: value,
+          };
+        } else {
+          activeVehicles[vehicleIndex] = { [field]: value };
+        }
+        updatedCustomer.activeVehicles = activeVehicles;
+      }
+
+      return { ...updatedCustomer };
+    });
   };
 
   const handleSaveChanges = () => {
@@ -50,102 +76,217 @@ const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
       ) : (
         <button onClick={handleEditClick}>Edit Customer Account Details</button>
       )}
-      <h3>Account Number: </h3>
+
+      <h3>Account Number:</h3>
       <p>{editedCustomer.accountNumber}</p>
 
+      <h3>Account Status:</h3>
       {isEditing ? (
         <select
           name="accountStatus"
           value={editedCustomer.accountStatus}
-          onChange={handleInputChange}
+          onChange={(e) =>
+            setEditedCustomer((prevCustomer) => ({
+              ...prevCustomer,
+              accountStatus: e.target.value,
+            }))
+          }
         >
           <option value="Active">Active</option>
           <option value="Inactive">Inactive</option>
         </select>
       ) : (
-        <>
-        <h3>Account Status: </h3>
         <p>{editedCustomer.accountStatus}</p>
-        </>
       )}
 
-{isEditing ? (
-        <>
-          <h4>First Name</h4>
-          <input
-            type="text"
-            name="firstName"
-            value={editedCustomer.firstName}
-            onChange={handleInputChange}
-          />
-          <h4>Last Name</h4>
-          <input
-            type="text"
-            name="lastName"
-            value={editedCustomer.lastName}
-            onChange={handleInputChange}
-          />
-          <h4>Phone Number</h4>
-          <input
-            type="text"
-            name="phoneNumber"
-            value={editedCustomer.phoneNumber}
-            onChange={handleInputChange}
-          />
-          <h4>Email</h4>
-          <input
-            type="text"
-            name="email"
-            value={editedCustomer.email}
-            onChange={handleInputChange}
-          />
-          <h4>Notes</h4>
-          <textarea
-            name="notes"
-            value={editedCustomer.notes}
-            onChange={handleInputChange}
-          ></textarea>
-        </>
+      <h4>First Name:</h4>
+      {isEditing ? (
+        <input
+          type="text"
+          name="firstName"
+          value={editedCustomer.firstName}
+          onChange={(e) =>
+            setEditedCustomer((prevCustomer) => ({
+              ...prevCustomer,
+              firstName: e.target.value,
+            }))
+          }
+        />
       ) : (
-        <>
-          <h4>First Name: </h4>
-          <p>{editedCustomer.firstName}</p>
-          <h4>Last Name: </h4>
-          <p>{editedCustomer.lastName}</p>
-          <h4>Phone Number: </h4>
-          <p>{editedCustomer.phoneNumber}</p>
-          <h4>Email: </h4>
-          <p>{editedCustomer.email}</p>
-          <h4>Notes: </h4>
-          <p>{editedCustomer.notes}</p>
-        </>
+        <p>{editedCustomer.firstName}</p>
       )}
-      <h4>Active Vehicles:</h4>
-      {editedCustomer.activeVehicles &&
-      editedCustomer.activeVehicles.length > 0 ? (
-        editedCustomer.activeVehicles.map((vehicle, index) => (
-          <div key={index}>
-            <p>Make: {vehicle.activeMake}</p>
-            <p>Model: {vehicle.activeModel}</p>
-            <p>Year: {vehicle.activeYear}</p>
-          </div>
-        ))
+
+      <h4>Last Name:</h4>
+      {isEditing ? (
+        <input
+          type="text"
+          name="lastName"
+          value={editedCustomer.lastName}
+          onChange={(e) =>
+            setEditedCustomer((prevCustomer) => ({
+              ...prevCustomer,
+              lastName: e.target.value,
+            }))
+          }
+        />
       ) : (
-        <p>No active vehicles.</p>
+        <p>{editedCustomer.lastName}</p>
+      )}
+
+      <h4>Phone Number:</h4>
+      {isEditing ? (
+        <input
+          type="text"
+          name="phoneNumber"
+          value={editedCustomer.phoneNumber}
+          onChange={(e) =>
+            setEditedCustomer((prevCustomer) => ({
+              ...prevCustomer,
+              phoneNumber: e.target.value,
+            }))
+          }
+        />
+      ) : (
+        <p>{editedCustomer.phoneNumber}</p>
+      )}
+
+      <h4>Email:</h4>
+      {isEditing ? (
+        <input
+          type="text"
+          name="email"
+          value={editedCustomer.email}
+          onChange={(e) =>
+            setEditedCustomer((prevCustomer) => ({
+              ...prevCustomer,
+              email: e.target.value,
+            }))
+          }
+        />
+      ) : (
+        <p>{editedCustomer.email}</p>
+      )}
+
+      <h4>Notes:</h4>
+      {isEditing ? (
+        <textarea
+          name="notes"
+          value={editedCustomer.notes}
+          onChange={(e) =>
+            setEditedCustomer((prevCustomer) => ({
+              ...prevCustomer,
+              notes: e.target.value,
+            }))
+          }
+        ></textarea>
+      ) : (
+        <p>{editedCustomer.notes}</p>
+      )}
+
+      <h4>Active Vehicles:</h4>
+      {isEditing ? (
+        editedCustomer.activeVehicles && editedCustomer.activeVehicles.length > 0 ? (
+          editedCustomer.activeVehicles.map((vehicle, index) => (
+            <div key={index}>
+              <h5>Vehicle {index + 1}</h5>
+              <label>Make:</label>
+              <input
+                type="text"
+                name={`activeMake_${index}`}
+                value={vehicle.activeMake || ""}
+                onChange={(e) =>
+                  handleInputChange(e, index, "activeMake", false)
+                }
+              />
+              <label>Model:</label>
+              <input
+                type="text"
+                name={`activeModel_${index}`}
+                value={vehicle.activeModel || ""}
+                onChange={(e) =>
+                  handleInputChange(e, index, "activeModel", false)
+                }
+              />
+              <label>Year:</label>
+              <input
+                type="text"
+                name={`activeYear_${index}`}
+                value={vehicle.activeYear || ""}
+                onChange={(e) =>
+                  handleInputChange(e, index, "activeYear", false)
+                }
+              />
+            </div>
+          ))
+        ) : (
+          <p>No active vehicles.</p>
+        )
+      ) : (
+        editedCustomer.activeVehicles && editedCustomer.activeVehicles.length > 0 ? (
+          editedCustomer.activeVehicles.map((vehicle, index) => (
+            <div key={index}>
+              <h5>Vehicle {index + 1}</h5>
+              <p>Make: {vehicle.activeMake}</p>
+              <p>Model: {vehicle.activeModel}</p>
+              <p>Year: {vehicle.activeYear}</p>
+            </div>
+          ))
+        ) : (
+          <p>No active vehicles.</p>
+        )
       )}
 
       <h4>Inactive Vehicles:</h4>
-      {editedCustomer.inactiveVehicles &&
-      editedCustomer.inactiveVehicles.length > 0 ? (
-        editedCustomer.inactiveVehicles.map((vehicle, index) => (
-          <div key={index}>
-            <p>Make: {vehicle.inactiveMake}</p>
-            <p>Model: {vehicle.inactiveModel}</p>
-            <p>Year: {vehicle.inactiveYear}</p>
-          </div>
-        ))
+      {isEditing ? (
+        editedCustomer.inactiveVehicles && editedCustomer.inactiveVehicles.length > 0 ? (
+          editedCustomer.inactiveVehicles.map((vehicle, index) => (
+            <div key={index}>
+              <h5>Vehicle {index + 1}</h5>
+              <label>Make:</label>
+              <input
+                type="text"
+                name={`inactiveMake_${index}`}
+                value={vehicle.inactiveMake || ""}
+                onChange={(e) =>
+                  handleInputChange(e, index, "inactiveMake", true)
+                }
+              />
+              <label>Model:</label>
+              <input
+                type="text"
+                name={`inactiveModel_${index}`}
+                value={vehicle.inactiveModel || ""}
+                onChange={(e) =>
+                  handleInputChange(e, index, "inactiveModel", true)
+                }
+              />
+              <label>Year:</label>
+              <input
+                type="text"
+                name={`inactiveYear_${index}`}
+                value={vehicle.inactiveYear || ""}
+                onChange={(e) =>
+                  handleInputChange(e, index, "inactiveYear", true)
+                }
+              />
+            </div>
+          ))
+        ) : (
+          <p>No inactive vehicles.</p>
+        )
       ) : (
-        <p>No inactive vehicles.</p>
+        editedCustomer.inactiveVehicles && editedCustomer.inactiveVehicles.length > 0 ? (
+          editedCustomer.inactiveVehicles.map((vehicle, index) => (
+            <div key={index}>
+              <h5>Vehicle {index + 1}</h5>
+              <p>Make: {vehicle.inactiveMake}</p>
+              <p>Model: {vehicle.inactiveModel}</p>
+              <p>Year: {vehicle.inactiveYear}</p>
+            </div>
+          ))
+        ) : (
+          <p>No inactive vehicles.</p>
+        )
       )}
     </div>
   );
