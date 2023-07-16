@@ -1,22 +1,30 @@
+import React, { useState } from "react";
 import CustomerList from "./components/customerList";
-import React, {useState} from "react";
+import SearchHeader from "./components/searchHeader";
+import "./App.css";
 
-function App() {
-  const [showList, setShowList] = useState(false)
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchCategory, setSearchCategory] = useState("name");
 
-  const handleShowListClick = () =>{
-      setShowList(true)
-  }
+ 
+
   return (
-      <>
-        {!showList&&(
-        <div onClick={()=> handleShowListClick()}>Show List of Customers</div>
-        )}
-        {showList&&(
-          <CustomerList/>
-        )}
-      </>
+    <>
+    <div className="search-container">
+      <SearchHeader
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          searchCategory={searchCategory}
+          setSearchCategory={setSearchCategory}
+      />
+    </div>
+
+    <div className="main-content-container">
+      <CustomerList searchTerm={searchTerm} searchCategory={searchCategory} />
+    </div>
+    </>
   );
-}
+};
 
 export default App;
