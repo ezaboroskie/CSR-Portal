@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import customerData from "../data/customerData.json";
 import CustomerDetails from "./customerDetails";
+import "../styles/ListStyles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faL, faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 const CustomerList = ({ searchTerm, searchCategory }) => {
   const [customerList, setCustomerList] = useState([]);
   const [selectedCustomerId, setSelectedCustomerId] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [showList, setShowList] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedCustomer, setEditedCustomer] = useState({});
 
   useEffect(() => {
     const storedCustomerData = localStorage.getItem("customerData");
@@ -23,24 +28,31 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
     setSelectedCustomerId(customerId);
     setShowDetails(true);
     setShowList(false);
+    setIsEditing(false);
   };
 
   const handleBackButtonClick = () => {
     setSelectedCustomerId(null);
     setShowDetails(false);
     setShowList(true);
+    setIsEditing(false);
   };
 
   const updateCustomerList = (updatedCustomer) => {
     const updatedList = customerList.map((customer) =>
-      customer.accountNumber === updatedCustomer.accountNumber ? updatedCustomer : customer
+      customer.accountNumber === updatedCustomer.accountNumber
+        ? updatedCustomer
+        : customer
     );
     setCustomerList(updatedList);
     localStorage.setItem("customerData", JSON.stringify(updatedList));
   };
 
   const filterByCategory = (customer, category) => {
-    const formattedSearchTerm = searchTerm.toLowerCase().replace(/-/g, "").trim();
+    const formattedSearchTerm = searchTerm
+      .toLowerCase()
+      .replace(/-/g, "")
+      .trim();
 
     switch (category) {
       case "name":
@@ -52,7 +64,9 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
         const formattedPhone = customer.phoneNumber.replace(/-/g, "");
         return formattedPhone.toLowerCase().includes(formattedSearchTerm);
       case "account number":
-        return customer.accountNumber.toLowerCase().includes(formattedSearchTerm);
+        return customer.accountNumber
+          .toLowerCase()
+          .includes(formattedSearchTerm);
       default:
         return false;
     }
@@ -62,10 +76,26 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
     filterByCategory(customer, searchCategory)
   );
 
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveChanges = () => {
+    const updatedCustomerList = customerList.map((customer) => {
+      if (customer.accountNumber === editedCustomer.accountNumber) {
+        return editedCustomer;
+      }
+      return customer;
+    });
+    localStorage.setItem("customerData", JSON.stringify(updatedCustomerList));
+    updateCustomerList(editedCustomer);
+    setIsEditing(false);
+  };
+
   return (
     <div>
       {showList ? (
-        <div>
+        <div className="main-content-container">
           {filteredCustomers.map((customer, index) => (
             <div
               key={index}
@@ -88,14 +118,44 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
           ))}
         </div>
       ) : (
-        <div>
-          <button onClick={handleBackButtonClick}>Back to List</button>
-          <CustomerDetails
-            customerId={selectedCustomerId}
-            customerList={customerList}
-            updateCustomerList={updateCustomerList}
-          />
-        </div>
+        <>
+          <div className="sticky-top-container">
+            <div className="back-arrow">
+              <FontAwesomeIcon
+                className="back-arrow"
+                onClick={handleBackButtonClick}
+                icon={faArrowLeft}
+              />
+            </div>
+
+            {isEditing ? (
+              <div className="edit-text-and-icon-container">
+                <span className="user-edit-select" onClick={handleSaveChanges}>
+                  Save Changes
+                </span>
+                <FontAwesomeIcon className="user-edit-icon" icon={faUserPen} />
+              </div>
+            ) : (
+              <div className="edit-text-and-icon-container">
+                <span className="user-edit-select" onClick={handleEditClick}>
+                  Edit Account
+                </span>
+                <FontAwesomeIcon className="user-edit-icon" icon={faUserPen} />
+              </div>
+            )}
+          </div>
+          <div className="main-content-container">
+            <CustomerDetails
+              customerId={selectedCustomerId}
+              customerList={customerList}
+              updateCustomerList={updateCustomerList}
+              isEditing={isEditing}
+              setIsEditing={setIsEditing}
+              editedCustomer={editedCustomer}
+              setEditedCustomer={setEditedCustomer}
+            />
+          </div>
+        </>
       )}
     </div>
   );

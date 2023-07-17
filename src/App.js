@@ -3,6 +3,7 @@ import CustomerList from "./components/customerList";
 import SearchHeader from "./components/searchHeader";
 import "./App.css";
 
+
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("name");
@@ -11,7 +12,7 @@ const App = () => {
 
   return (
     <>
-    <div className="search-container">
+    <div className="header-content-container">
       <SearchHeader
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -20,7 +21,7 @@ const App = () => {
       />
     </div>
 
-    <div className="main-content-container">
+    <div >
       <CustomerList searchTerm={searchTerm} searchCategory={searchCategory} />
     </div>
     </>

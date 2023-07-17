@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
+import "../styles/DetailsStyles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
-const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
-  const [customer, setCustomer] = useState(null);
-  const [editedCustomer, setEditedCustomer] = useState({});
-  const [isEditing, setIsEditing] = useState(false);
-
+const CustomerDetails = ({
+  customerId,
+  customerList,
+  updateCustomerList,
+  isEditing,
+  setIsEditing,
+  editedCustomer,
+  setEditedCustomer,
+}) => {
   useEffect(() => {
     const selectedCustomer = customerList.find(
       (customer) => customer.accountNumber === customerId
     );
 
     if (!selectedCustomer) {
-      setCustomer(null);
       setEditedCustomer({});
     } else {
-      setCustomer(selectedCustomer);
       setEditedCustomer({ ...selectedCustomer });
     }
-  }, [customerId, customerList]);
+  }, [customerId, customerList, setEditedCustomer]);
 
   const handleInputChange = (e, vehicleIndex, field, isInactive) => {
     const { name, value } = e.target;
@@ -65,17 +70,9 @@ const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
     setIsEditing(false);
   };
 
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
   return (
     <div>
-      {isEditing ? (
-        <button onClick={handleSaveChanges}>Save Changes</button>
-      ) : (
-        <button onClick={handleEditClick}>Edit Customer Account Details</button>
-      )}
+   
 
       <h3>Account Number:</h3>
       <p>{editedCustomer.accountNumber}</p>
@@ -185,7 +182,8 @@ const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
 
       <h4>Active Vehicles:</h4>
       {isEditing ? (
-        editedCustomer.activeVehicles && editedCustomer.activeVehicles.length > 0 ? (
+        editedCustomer.activeVehicles &&
+        editedCustomer.activeVehicles.length > 0 ? (
           editedCustomer.activeVehicles.map((vehicle, index) => (
             <div key={index}>
               <h5>Vehicle {index + 1}</h5>
@@ -221,24 +219,24 @@ const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
         ) : (
           <p>No active vehicles.</p>
         )
+      ) : editedCustomer.activeVehicles &&
+        editedCustomer.activeVehicles.length > 0 ? (
+        editedCustomer.activeVehicles.map((vehicle, index) => (
+          <div key={index}>
+            <h5>Vehicle {index + 1}</h5>
+            <p>Make: {vehicle.activeMake}</p>
+            <p>Model: {vehicle.activeModel}</p>
+            <p>Year: {vehicle.activeYear}</p>
+          </div>
+        ))
       ) : (
-        editedCustomer.activeVehicles && editedCustomer.activeVehicles.length > 0 ? (
-          editedCustomer.activeVehicles.map((vehicle, index) => (
-            <div key={index}>
-              <h5>Vehicle {index + 1}</h5>
-              <p>Make: {vehicle.activeMake}</p>
-              <p>Model: {vehicle.activeModel}</p>
-              <p>Year: {vehicle.activeYear}</p>
-            </div>
-          ))
-        ) : (
-          <p>No active vehicles.</p>
-        )
+        <p>No active vehicles.</p>
       )}
 
       <h4>Inactive Vehicles:</h4>
       {isEditing ? (
-        editedCustomer.inactiveVehicles && editedCustomer.inactiveVehicles.length > 0 ? (
+        editedCustomer.inactiveVehicles &&
+        editedCustomer.inactiveVehicles.length > 0 ? (
           editedCustomer.inactiveVehicles.map((vehicle, index) => (
             <div key={index}>
               <h5>Vehicle {index + 1}</h5>
@@ -274,19 +272,18 @@ const CustomerDetails = ({ customerId, customerList, updateCustomerList }) => {
         ) : (
           <p>No inactive vehicles.</p>
         )
+      ) : editedCustomer.inactiveVehicles &&
+        editedCustomer.inactiveVehicles.length > 0 ? (
+        editedCustomer.inactiveVehicles.map((vehicle, index) => (
+          <div key={index}>
+            <h5>Vehicle {index + 1}</h5>
+            <p>Make: {vehicle.inactiveMake}</p>
+            <p>Model: {vehicle.inactiveModel}</p>
+            <p>Year: {vehicle.inactiveYear}</p>
+          </div>
+        ))
       ) : (
-        editedCustomer.inactiveVehicles && editedCustomer.inactiveVehicles.length > 0 ? (
-          editedCustomer.inactiveVehicles.map((vehicle, index) => (
-            <div key={index}>
-              <h5>Vehicle {index + 1}</h5>
-              <p>Make: {vehicle.inactiveMake}</p>
-              <p>Model: {vehicle.inactiveModel}</p>
-              <p>Year: {vehicle.inactiveYear}</p>
-            </div>
-          ))
-        ) : (
-          <p>No inactive vehicles.</p>
-        )
+        <p>No inactive vehicles.</p>
       )}
     </div>
   );

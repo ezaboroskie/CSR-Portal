@@ -1,0 +1,42 @@
+.main-content-container {
+    background-color: aliceblue;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+    overflow: auto;
+    margin-top: 3vh;
+}
+
+.sticky-top-container {
+    position: sticky;
+    top: 14vh;
+    background-color: aliceblue;
+    height: 3vh;
+    padding: 2vh;
+    z-index: 1;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    border-bottom: solid 1px grey;
+    font-weight: bold;
+}
+
+.user-edit-icon{
+    color: rgb(8, 104, 8);
+    height: 3vh;
+}
+
+.back-arrow{
+    height: 4.5vh;
+    width: 6vh;
+    color: rgb(13, 30, 83);
+    position: absolute;
+    left: 0;
+}
+
+.back-arrow-container{
+    position: absolute;
+    left: 0
+}
+

@@ -1,0 +1,8 @@
+.user-edit-select{
+    position: sticky;
+    top: 0;
+    background-color: aliceblue;
+    height: 3vh;
+    padding: 1vh;
+    z-index: 1;
+}
