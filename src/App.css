@@ -4,6 +4,7 @@ body, html {
     padding: 0;
     display: flex;
     flex-direction: column;
+    background-color: aliceblue;
   }
 
 .header-content-container {
