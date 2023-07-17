@@ -98,6 +98,7 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
         <div className="main-content-container">
           {filteredCustomers.map((customer, index) => (
             <div
+              className="customor-list-info-box"
               key={index}
               onClick={() =>
                 handleCustomerClick(
@@ -106,14 +107,21 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
                 )
               }
             >
-              <h3>
-                {customer.firstName} {customer.lastName}
-              </h3>
-              <p>Account Number: {customer.accountNumber}</p>
-              <p>Account Status: {customer.accountStatus}</p>
-              <p>Phone Number: {customer.phoneNumber}</p>
-              <p>Email: {customer.email}</p>
-              <hr />
+              <div className="customer-list-name-container">
+                <h3>
+                  {customer.firstName} {customer.lastName}
+                </h3>
+              </div>
+              <div>
+                <div>
+                 <span>Acc Number: {customer.accountNumber}</span> 
+                </div>
+                <div>
+                 <span>Acc Status: {customer.accountStatus}</span> 
+                </div>
+              </div>
+              <span>Phone #: {customer.phoneNumber}</span>
+              <span>Email: {customer.email}</span>
             </div>
           ))}
         </div>
@@ -130,17 +138,23 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
 
             {isEditing ? (
               <div className="edit-text-and-icon-container">
-                <span className="user-edit-select" onClick={handleSaveChanges}>
+                <span className="user-edit-save" onClick={handleSaveChanges}>
                   Save Changes
                 </span>
-                <FontAwesomeIcon className="user-edit-icon" icon={faUserPen} />
+                <FontAwesomeIcon
+                  className="user-edit-icon-save"
+                  icon={faUserPen}
+                />
               </div>
             ) : (
               <div className="edit-text-and-icon-container">
                 <span className="user-edit-select" onClick={handleEditClick}>
                   Edit Account
                 </span>
-                <FontAwesomeIcon className="user-edit-icon" icon={faUserPen} />
+                <FontAwesomeIcon
+                  className="user-edit-icon-select"
+                  icon={faUserPen}
+                />
               </div>
             )}
           </div>
@@ -148,6 +162,7 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
             <CustomerDetails
               customerId={selectedCustomerId}
               customerList={customerList}
+              setCustomerList={setCustomerList}
               updateCustomerList={updateCustomerList}
               isEditing={isEditing}
               setIsEditing={setIsEditing}

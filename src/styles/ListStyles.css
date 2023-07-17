@@ -5,7 +5,6 @@
     flex-direction: column;
     max-height: fit-content;
     overflow: auto;
-   
 }
 
 .sticky-top-container {
@@ -22,10 +21,34 @@
     font-weight: bold;
 }
 
-.user-edit-icon{
+.customor-list-info-box{
+    border-bottom: grey 1px solid;
+    padding: 1.5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.customer-list-name-container{
+    padding: .5vh
+}
+
+.user-edit-icon-save{
     color: rgb(8, 104, 8);
     height: 3vh;
 }
+.user-edit-save{
+    color: rgb(8, 104, 8);
+    padding: 1vh
+}
+.user-edit-icon-select{
+    color: rgb(51, 71, 160);
+    height: 3vh;
+}
+.user-edit-select{
+    color: rgb(51, 71, 160)
+}
+
 
 .back-arrow{
     height: 4.5vh;

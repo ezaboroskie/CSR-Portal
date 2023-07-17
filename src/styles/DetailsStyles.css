@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1vh;
+    padding: .5vh;
 }
 
 .customer-details-acc-number-container{
@@ -64,7 +64,7 @@
     margin-left: 1vh
 }
 .customer-details-phone-container{
-    padding: 1vh;
+    padding: .7vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,16 +95,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 1vh;
 }
-.customer-details-vehicles-container h4{
-    text-decoration: underline;
-}
+
 .customer-details-vehicle-make-and-model-container{
-    border: 1.5px solid #4f93ec ;
+    border: 2px solid #4f93ec ;
+    background-color: lightcyan;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: .3vh;
+    padding: 1vh;
+}
+.customer-edit-vehicle-make-and-model-container{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .3vh;
+    padding: vh;
 }
 .customer-details-vehicle-make-and-model-spacer{
     display: flex;
@@ -156,18 +167,55 @@
 }
 
 .customer-edit-notes-textarea{
-    width: 80vw;
-    height: 15vh;
+    width: 65vw;
+    height: 10vh;
 }
 
-.vehicle-header{
-    background-color: #3d71b6;
+.customer-edit-active-add-container{
     display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    color: aliceblue
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75vw;
 }
+.customer-edit-active-add-plus-icon{
+    color: #4f93ec;
+}
+
+
+.active-vehicle-click-explaination-text{
+    font-size: 13px ;
+}
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    padding: 3.5vh
+    
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .popup-buttons {
+    margin-top: 20px;
+  }
+  
+  .popup-buttons button {
+    margin-right: 10px;
+  }
 
 h4{
     margin: 0

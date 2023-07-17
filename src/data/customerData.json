@@ -10,7 +10,7 @@
       {
         "activeMake": "Toyota",
         "activeModel": "Camery",
-        "activeYear": "2012"
+        "activeYear": "GA SKL1384"
       }
     ],
     "inactiveVehicles": [],
@@ -27,7 +27,7 @@
       {
         "activeMake": "Honda",
         "activeModel": "Accord",
-        "activeYear": "2015"
+        "activeYear": "NY BHM7462"
       }
     ],
     "inactiveVehicles": [],
@@ -44,7 +44,7 @@
       {
         "activeMake": "Ford",
         "activeModel": "Mustang",
-        "activeYear": "2010"
+        "activeYear": "CA YTR2794"
       }
     ],
     "inactiveVehicles": [],
@@ -61,7 +61,7 @@
       {
         "activeMake": "Chevrolet",
         "activeModel": "Camaro",
-        "activeYear": "2018"
+        "activeYear": "TX QWE5473"
       }
     ],
     "inactiveVehicles": [],
@@ -78,7 +78,7 @@
       {
         "activeMake": "BMW",
         "activeModel": "X5",
-        "activeYear": "2020"
+        "activeYear": "FL ASD9321"
       }
     ],
     "inactiveVehicles": [],
@@ -95,7 +95,7 @@
       {
         "activeMake": "Toyota",
         "activeModel": "Corolla",
-        "activeYear": "2017"
+        "activeYear": "GA LKJ7834"
       }
     ],
     "inactiveVehicles": [],
@@ -112,7 +112,7 @@
       {
         "activeMake": "Honda",
         "activeModel": "Civic",
-        "activeYear": "2016"
+        "activeYear": "NY ZXC6942"
       }
     ],
     "inactiveVehicles": [],
@@ -129,7 +129,7 @@
       {
         "activeMake": "Nissan",
         "activeModel": "Sentra",
-        "activeYear": "2019"
+        "activeYear": "CA MNB5274"
       }
     ],
     "inactiveVehicles": [],
@@ -146,12 +146,12 @@
       {
         "activeMake": "Chevrolet",
         "activeModel": "Silverado",
-        "activeYear": "2017"
+        "activeYear": "FL HJK9237"
       },
       {
         "activeMake": "Ford",
         "activeModel": "Explorer",
-        "activeYear": "2015"
+        "activeYear": "FL ZFL3931"
       }
     ],
     "inactiveVehicles": [],
@@ -168,14 +168,14 @@
       {
         "activeMake": "Toyota",
         "activeModel": "RAV4",
-        "activeYear": "2021"
+        "activeYear": "NY QWE3721"
       }
     ],
     "inactiveVehicles": [
       {
         "inactiveMake": "Ford",
         "inactiveModel": "Focus",
-        "inactiveYear": "2013"
+        "inactiveYear": "NY WFL2241"
       }
     ],
     "notes": "This customer recently purchased a new SUV."
@@ -191,7 +191,7 @@
       {
         "activeMake": "Honda",
         "activeModel": "Pilot",
-        "activeYear": "2019"
+        "activeYear": "TX FGH1579"
       }
     ],
     "inactiveVehicles": [],
@@ -208,7 +208,7 @@
       {
         "activeMake": "Ford",
         "activeModel": "Escape",
-        "activeYear": "2016"
+        "activeYear": "CA LPA1945"
       }
     ],
     "inactiveVehicles": [],
@@ -225,7 +225,7 @@
       {
         "activeMake": "Toyota",
         "activeModel": "Highlander",
-        "activeYear": "2022"
+        "activeYear": "FL RST5129"
       }
     ],
     "inactiveVehicles": [],
@@ -242,7 +242,7 @@
       {
         "activeMake": "Honda",
         "activeModel": "CR-V",
-        "activeYear": "2018"
+        "activeYear": "CA PLO7491"
       }
     ],
     "inactiveVehicles": [],
@@ -259,7 +259,7 @@
       {
         "activeMake": "Ford",
         "activeModel": "Fusion",
-        "activeYear": "2017"
+        "activeYear": "NY VBN9837"
       }
     ],
     "inactiveVehicles": [],
@@ -276,14 +276,14 @@
       {
         "activeMake": "Chevrolet",
         "activeModel": "Equinox",
-        "activeYear": "2019"
+        "activeYear": "TX JKL2365"
       }
     ],
     "inactiveVehicles": [
       {
         "inactiveMake": "Nissan",
         "inactiveModel": "Rogue",
-        "inactiveYear": "2014"
+        "inactiveYear": "FL ZXV2983"
       }
     ],
     "notes": ""
@@ -299,7 +299,7 @@
       {
         "activeMake": "Toyota",
         "activeModel": "Sienna",
-        "activeYear": "2020"
+        "activeYear": "GA BCD4236"
       }
     ],
     "inactiveVehicles": [],
@@ -316,7 +316,7 @@
       {
         "activeMake": "Honda",
         "activeModel": "Fit",
-        "activeYear": "2015"
+        "activeYear": "NY XYZ6871"
       }
     ],
     "inactiveVehicles": [],
@@ -333,19 +333,19 @@
       {
         "activeMake": "Nissan",
         "activeModel": "Maxima",
-        "activeYear": "2021"
+        "activeYear": "CA POI3957"
       }
     ],
     "inactiveVehicles": [
       {
         "inactiveMake": "Ford",
         "inactiveModel": "Taurus",
-        "inactiveYear": "2011"
+        "inactiveYear": "NY XYZ6873"
       },
       {
         "inactiveMake": "Toyota",
         "inactiveModel": "Avalon",
-        "inactiveYear": "2012"
+        "inactiveYear": "NY LKO3526"
       }
     ],
     "notes": ""
@@ -361,7 +361,7 @@
       {
         "activeMake": "Ford",
         "activeModel": "Mustang",
-        "activeYear": "2022"
+        "activeYear": "CA LKO3526"
       }
     ],
     "inactiveVehicles": [],
@@ -379,7 +379,7 @@
       {
         "inactiveMake": "Volkswagen",
         "inactiveModel": "Jetta",
-        "inactiveYear": "2014"
+        "inactiveYear": "GA MNB1487"
       }
     ],
     "notes": "Inactive at request of customer."
@@ -396,7 +396,7 @@
       {
         "inactiveMake": "Honda",
         "inactiveModel": "Civic",
-        "inactiveYear": "2009"
+        "inactiveYear": "MO QAZ3496"
       }
     ],
     "notes": "Inactive due to missed payments."
@@ -413,7 +413,7 @@
       {
         "inactiveMake": "Ford",
         "inactiveModel": "Focus",
-        "inactiveYear": "2015"
+        "inactiveYear": "ME FLS9284"
       }
     ],
     "notes": "Inactive at request of customer."
@@ -430,12 +430,12 @@
       {
         "inactiveMake": "Chevrolet",
         "inactiveModel": "Malibu",
-        "inactiveYear": "2013"
+        "inactiveYear": "NY QWE5987"
       },
       {
         "inactiveMake": "Toyota",
         "inactiveModel": "Corolla",
-        "inactiveYear": "2012"
+        "inactiveYear": "NY QWE5233"
       }
     ],
     "notes": "Inactive due to missed payments."

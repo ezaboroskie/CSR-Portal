@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/DetailsStyles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
+import {faTrashCan} from "@fortawesome/free-solid-svg-icons";
 
 const CustomerDetails = ({
   customerId,
   customerList,
+  setCustomerList,
   isEditing,
   editedCustomer,
   setEditedCustomer,
 }) => {
+  const [selectedVehicleIndex, setSelectedVehicleIndex] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+
   useEffect(() => {
     const selectedCustomer = customerList.find(
       (customer) => customer.accountNumber === customerId
@@ -50,6 +57,55 @@ const CustomerDetails = ({
         updatedCustomer.activeVehicles = activeVehicles;
       }
 
+      return { ...updatedCustomer };
+    });
+  };
+
+  const openPopup = (vehicleIndex) => {
+    setSelectedVehicleIndex(vehicleIndex);
+    setShowPopup(true);
+  };
+
+  const updateLocalStorage = (updatedList) => {
+    localStorage.setItem("customerData", JSON.stringify(updatedList));
+  };
+  const deleteInactiveVehicle = (vehicleIndex) => {
+    setEditedCustomer((prevCustomer) => {
+      const updatedCustomer = { ...prevCustomer };
+      const inactiveVehicles = [...(updatedCustomer.inactiveVehicles || [])];
+      inactiveVehicles.splice(vehicleIndex, 1);
+      updatedCustomer.inactiveVehicles = inactiveVehicles;
+  
+      const updatedList = customerList.map((customer) =>
+        customer.accountNumber === updatedCustomer.accountNumber
+          ? updatedCustomer
+          : customer
+      );
+      setCustomerList(updatedList);
+      updateLocalStorage(updatedList);
+  
+      return { ...updatedCustomer };
+    });
+  };
+
+  const moveVehicleToInactive = () => {
+    const updatedCustomer = { ...editedCustomer };
+    const selectedVehicle =
+      updatedCustomer.activeVehicles[selectedVehicleIndex];
+    updatedCustomer.activeVehicles.splice(selectedVehicleIndex, 1);
+    updatedCustomer.inactiveVehicles = updatedCustomer.inactiveVehicles || [];
+    updatedCustomer.inactiveVehicles.push(selectedVehicle);
+    setEditedCustomer(updatedCustomer);
+    setShowPopup(false);
+    setSelectedVehicleIndex(null);
+  };
+
+  const addNewActiveVehicle = () => {
+    setEditedCustomer((prevCustomer) => {
+      const updatedCustomer = { ...prevCustomer };
+      const activeVehicles = [...(updatedCustomer.activeVehicles || [])];
+      activeVehicles.push({});
+      updatedCustomer.activeVehicles = activeVehicles;
       return { ...updatedCustomer };
     });
   };
@@ -213,20 +269,34 @@ const CustomerDetails = ({
         </div>
 
         <div className="customer-details-vehicles-container">
-          <h4>Active Vehicles:</h4>
+          
+          
+          {!isEditing &&(
+          <>
+          <h4>Active Vehicles</h4>
+            <span className="active-vehicle-click-explaination-text">Click to move to inactive</span>
+          </>
+          )}
+
+          {isEditing &&(
+            <div className="customer-edit-active-add-container">
+            <h4>Active Vehicles</h4>
+            <FontAwesomeIcon className="customer-edit-active-add-plus-icon" icon={faCirclePlus} onClick={addNewActiveVehicle}/>
+            </div>
+          )}
           <div className="customer-details-vehicles-align">
             {isEditing ? (
               editedCustomer.activeVehicles &&
               editedCustomer.activeVehicles.length > 0 ? (
                 editedCustomer.activeVehicles.map((vehicle, index) => (
                   <div
-                    className="customer-details-vehicle-make-and-model-container"
+                    className="customer-edi-vehicle-make-and-model-container"
                     key={index}
                   >
-                  
                     <h5>Vehicle {index + 1}</h5>
                     <div>
                       <input
+                        placeholder="Make"
                         type="text"
                         name={`activeMake_${index}`}
                         value={vehicle.activeMake || ""}
@@ -236,8 +306,8 @@ const CustomerDetails = ({
                       />
                     </div>
                     <div>
-                      
                       <input
+                        placeholder="Model"
                         type="text"
                         name={`activeModel_${index}`}
                         value={vehicle.activeModel || ""}
@@ -247,9 +317,9 @@ const CustomerDetails = ({
                       />
                     </div>
                     <div>
-                     
                       <input
                         type="text"
+                        placeholder="Tag #"
                         name={`activeYear_${index}`}
                         value={vehicle.activeYear || ""}
                         onChange={(e) =>
@@ -268,10 +338,9 @@ const CustomerDetails = ({
                 <div
                   className="customer-details-vehicle-make-and-model-container"
                   key={index}
+                  onClick={() => openPopup(index)}
                 >
-                  <div className="vehicle-header">
                   <h5>Vehicle {index + 1}</h5>
-                  </div>
                   <div className="customer-details-vehicle-make-and-model-spacer">
                     <div>{vehicle.activeMake}</div>
                     <div>{vehicle.activeModel}</div>
@@ -283,60 +352,97 @@ const CustomerDetails = ({
               <span>No active vehicles.</span>
             )}
           </div>
+
+
           <h5>Inactive Vehicles:</h5>
-          {isEditing ? (
-            editedCustomer.inactiveVehicles &&
-            editedCustomer.inactiveVehicles.length > 0 ? (
+          <div className="customer-details-vehicles-align">
+            {isEditing ? (
+              editedCustomer.inactiveVehicles &&
+              editedCustomer.inactiveVehicles.length > 0 ? (
+                editedCustomer.inactiveVehicles.map((vehicle, index) => (
+                  <div
+                    className="customer-details-vehicle-make-and-model-container"
+                    key={index}
+                  >
+                    <h5>Vehicle {index + 1}</h5>
+                    <div>
+                      <input
+                        placeholder="Make"
+                        type="text"
+                        name={`inactiveMake_${index}`}
+                        value={vehicle.inactiveMake || ""}
+                        onChange={(e) =>
+                          handleInputChange(e, index, "inactiveMake", true)
+                        }
+                      />
+                    </div>
+                    <div>
+                      <input
+                        placeholder="Model"
+                        type="text"
+                        name={`inactiveModel_${index}`}
+                        value={vehicle.inactiveModel || ""}
+                        onChange={(e) =>
+                          handleInputChange(e, index, "inactiveModel", true)
+                        }
+                      />
+                    </div>
+                    <div>
+                      <input
+                        placeholder="Tag #"
+                        type="text"
+                        name={`inactiveYear_${index}`}
+                        value={vehicle.inactiveYear || ""}
+                        onChange={(e) =>
+                          handleInputChange(e, index, "inactiveYear", true)
+                        }
+                      />
+                    </div>
+                    <button onClick={() => deleteInactiveVehicle(index)}>
+                      Delete
+                    </button>
+                  </div>
+                ))
+              ) : (
+                <span>No inactive vehicles.</span>
+              )
+            ) : editedCustomer.inactiveVehicles &&
+              editedCustomer.inactiveVehicles.length > 0 ? (
               editedCustomer.inactiveVehicles.map((vehicle, index) => (
-                <div key={index}>
+                <div
+                  className="customer-details-vehicle-make-and-model-container"
+                  key={index}
+                >
                   <h5>Vehicle {index + 1}</h5>
-                  <label>Make:</label>
-                  <input
-                    type="text"
-                    name={`inactiveMake_${index}`}
-                    value={vehicle.inactiveMake || ""}
-                    onChange={(e) =>
-                      handleInputChange(e, index, "inactiveMake", true)
-                    }
-                  />
-                  <label>Model:</label>
-                  <input
-                    type="text"
-                    name={`inactiveModel_${index}`}
-                    value={vehicle.inactiveModel || ""}
-                    onChange={(e) =>
-                      handleInputChange(e, index, "inactiveModel", true)
-                    }
-                  />
-                  <label>Year:</label>
-                  <input
-                    type="text"
-                    name={`inactiveYear_${index}`}
-                    value={vehicle.inactiveYear || ""}
-                    onChange={(e) =>
-                      handleInputChange(e, index, "inactiveYear", true)
-                    }
-                  />
+                  <div className="customer-details-vehicle-make-and-model-spacer">
+                    <div>{vehicle.activeMake}</div>
+                    <div>{vehicle.activeModel}</div>
+                  </div>
+                  <span>{vehicle.activeYear}</span>
+                  <FontAwesomeIcon icon={faTrashCan}  className="inactive-delete-btn" 
+                  onClick={() =>deleteInactiveVehicle(index)}/>
                 </div>
               ))
             ) : (
               <span>No inactive vehicles.</span>
-            )
-          ) : editedCustomer.inactiveVehicles &&
-            editedCustomer.inactiveVehicles.length > 0 ? (
-            editedCustomer.inactiveVehicles.map((vehicle, index) => (
-              <div key={index}>
-                <h5>Vehicle {index + 1}</h5>
-                <span>Make: {vehicle.inactiveMake}</span>
-                <span>Model: {vehicle.inactiveModel}</span>
-                <span>Year: {vehicle.inactiveYear}</span>
-              </div>
-            ))
-          ) : (
-            <span>No inactive vehicles.</span>
-          )}
+            )}
+          </div>
         </div>
       </div>
+      {selectedVehicleIndex !== null && showPopup && (
+        <div className="popup-container">
+          <div className="popup-content">
+            <h4>Move Vehicle to Inactive</h4>
+            <p>
+              Are you sure you want to move this vehicle to the inactive list?
+            </p>
+            <div className="popup-buttons">
+              <button onClick={moveVehicleToInactive}>Yes</button>
+              <button onClick={() => setShowPopup(false)}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
