@@ -1,3 +1,4 @@
+
 .user-edit-select{
     position: sticky;
     top: 0;
@@ -5,4 +6,181 @@
     height: 3vh;
     padding: 1vh;
     z-index: 1;
+}
+
+.details-top-spacer{
+    height: 1.5vh;
+    background-color: aliceblue;
+}
+
+.acc-status-select{
+    padding: .45vh;
+}
+
+.main-customer-details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid red */
+}
+
+.main-customer-details-container input{
+    border-radius: 8px;
+    border: 1px solid grey;
+    padding: .45vh;
+   
+}
+
+
+.customer-details-name-acc-container{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    align-items: center;
+}
+
+.customer-details-acc-number-and-status-container{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh;
+}
+
+.customer-details-acc-number-container{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+    margin-right: 1vh
+}
+.customer-details-acc-status-container{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+    margin-left: 1vh
+}
+.customer-details-phone-container{
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.customer-details-email-container{
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.customer-details-notes-container{
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.customer-details-notes-text{
+    font-size: 14px;
+    text-align: center;
+}
+
+.customer-details-vehicles-container{
+    /* border: 1px solid red; */
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.customer-details-vehicles-container h4{
+    text-decoration: underline;
+}
+.customer-details-vehicle-make-and-model-container{
+    border: 1.5px solid #4f93ec ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .3vh;
+}
+.customer-details-vehicle-make-and-model-spacer{
+    display: flex;
+    padding: .5vh;
+    justify-content: space-between;
+    /* border: 1px red solid; */
+}
+.customer-details-vehicle-make-and-model-spacer div{
+    margin: .5vh;
+    font-size: 14px;
+}
+.customer-details-vehicles-align{
+    /* border: 1px solid red; */
+    display: flex;
+}
+.customer-details-vehicles-align input{
+    width: 25vw;
+    border-radius: 4px;
+}
+
+.customer-details-vehicles-align span{
+    font-size: 14px;
+}
+
+.customer-edit-first-name-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh
+}
+
+.customer-edit-last-name-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+}
+.customer-edit-phone-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+}
+.customer-edit-email-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+}
+
+.customer-edit-notes-textarea{
+    width: 80vw;
+    height: 15vh;
+}
+
+.vehicle-header{
+    background-color: #3d71b6;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: aliceblue
+}
+
+h4{
+    margin: 0
+}
+
+h3{
+    margin: 0;
+}
+
+h5{
+    margin: 0;
+}
+
+span{
+    margin: 0
 }
