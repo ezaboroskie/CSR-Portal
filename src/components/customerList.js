@@ -112,16 +112,20 @@ const CustomerList = ({ searchTerm, searchCategory }) => {
                   {customer.firstName} {customer.lastName}
                 </h3>
               </div>
-              <div>
+              <div className="customer-list-information-container">
                 <div>
-                 <span>Acc Number: {customer.accountNumber}</span> 
+                  <span>Acc Number: {customer.accountNumber}</span>
                 </div>
                 <div>
-                 <span>Acc Status: {customer.accountStatus}</span> 
+                  <span>Acc Status: {customer.accountStatus}</span>
+                </div>
+                <div>
+                  <span>Phone #: {customer.phoneNumber}</span>
+                </div>
+                <div>
+                  <span>Email: {customer.email}</span>
                 </div>
               </div>
-              <span>Phone #: {customer.phoneNumber}</span>
-              <span>Email: {customer.email}</span>
             </div>
           ))}
         </div>

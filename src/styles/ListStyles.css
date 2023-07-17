@@ -32,6 +32,9 @@
 .customer-list-name-container{
     padding: .5vh
 }
+.customer-list-information-container{
+    padding: .5vh
+}
 
 .user-edit-icon-save{
     color: rgb(8, 104, 8);

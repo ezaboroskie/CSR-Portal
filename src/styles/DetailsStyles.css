@@ -140,11 +140,21 @@
     font-size: 14px;
 }
 
+.customer-details-inactive-spacer{
+    padding: 1.5vh
+}
+
 .customer-edit-first-name-container{
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1vh
+}
+
+.customer-edit-input-field{
+    width: 45vw;
+    margin-left: 7vw;
 }
 
 .customer-edit-last-name-container{
@@ -184,6 +194,7 @@
 
 .active-vehicle-click-explaination-text{
     font-size: 13px ;
+    padding: .75vh
 }
 
 .popup-container {
@@ -199,23 +210,28 @@
     z-index: 3;
     padding: 3.5vh
     
-  }
+}
   
-  .popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .popup-buttons {
-    margin-top: 20px;
-  }
-  
-  .popup-buttons button {
-    margin-right: 10px;
-  }
+.popup-content {
+background-color: white;
+padding: 20px;
+border-radius: 8px;
+max-width: 400px;
+text-align: center;
+}
+
+.popup-buttons {
+margin-top: 20px;
+}
+
+.popup-buttons button {
+margin-right: 10px;
+}
+
+.inactive-delete-btn{
+    padding-top: .75vh;
+    padding: .5vh;
+}
 
 h4{
     margin: 0

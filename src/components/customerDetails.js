@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/DetailsStyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
-import {faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const CustomerDetails = ({
   customerId,
@@ -75,7 +75,7 @@ const CustomerDetails = ({
       const inactiveVehicles = [...(updatedCustomer.inactiveVehicles || [])];
       inactiveVehicles.splice(vehicleIndex, 1);
       updatedCustomer.inactiveVehicles = inactiveVehicles;
-  
+
       const updatedList = customerList.map((customer) =>
         customer.accountNumber === updatedCustomer.accountNumber
           ? updatedCustomer
@@ -83,7 +83,7 @@ const CustomerDetails = ({
       );
       setCustomerList(updatedList);
       updateLocalStorage(updatedList);
-  
+
       return { ...updatedCustomer };
     });
   };
@@ -152,10 +152,12 @@ const CustomerDetails = ({
           {isEditing ? (
             <>
               <div className="customer-edit-first-name-container">
-                <div>
+                <div className="customer-edit-first-name-spacer">
                   <h5>First Name</h5>
                 </div>
+                <div>
                 <input
+                 className="customer-edit-input-field"
                   type="text"
                   name="firstName"
                   value={editedCustomer.firstName}
@@ -165,7 +167,8 @@ const CustomerDetails = ({
                       firstName: e.target.value,
                     }))
                   }
-                />
+                  />
+                </div>
               </div>
             </>
           ) : null}
@@ -173,10 +176,11 @@ const CustomerDetails = ({
           {isEditing ? (
             <>
               <div className="customer-edit-last-name-container">
-                <div>
+                <div className="customer-edit-first-name-spacer">
                   <h5>Last Name</h5>
                 </div>
-                <input
+                <input 
+                  className="customer-edit-input-field"
                   type="text"
                   name="lastName"
                   value={editedCustomer.lastName}
@@ -198,6 +202,7 @@ const CustomerDetails = ({
                   <h5>Phone</h5>
                 </div>
                 <input
+                 className="customer-edit-input-field"
                   type="text"
                   name="phoneNumber"
                   value={editedCustomer.phoneNumber}
@@ -226,6 +231,7 @@ const CustomerDetails = ({
                   <h5>Email</h5>
                 </div>
                 <input
+                 className="customer-edit-input-field"
                   type="text"
                   name="email"
                   value={editedCustomer.email}
@@ -269,19 +275,23 @@ const CustomerDetails = ({
         </div>
 
         <div className="customer-details-vehicles-container">
-          
-          
-          {!isEditing &&(
-          <>
-          <h4>Active Vehicles</h4>
-            <span className="active-vehicle-click-explaination-text">Click to move to inactive</span>
-          </>
+          {!isEditing && (
+            <>
+              <span className="active-vehicle-click-explaination-text">
+                Click to move to inactive
+              </span>
+              <h4>Active Vehicles</h4>
+            </>
           )}
 
-          {isEditing &&(
+          {isEditing && (
             <div className="customer-edit-active-add-container">
-            <h4>Active Vehicles</h4>
-            <FontAwesomeIcon className="customer-edit-active-add-plus-icon" icon={faCirclePlus} onClick={addNewActiveVehicle}/>
+              <h4>Active Vehicles</h4>
+              <FontAwesomeIcon
+                className="customer-edit-active-add-plus-icon"
+                icon={faCirclePlus}
+                onClick={addNewActiveVehicle}
+              />
             </div>
           )}
           <div className="customer-details-vehicles-align">
@@ -353,8 +363,7 @@ const CustomerDetails = ({
             )}
           </div>
 
-
-          <h5>Inactive Vehicles:</h5>
+          <h4 className="customer-details-inactive-spacer">Inactive Vehicles:</h4>
           <div className="customer-details-vehicles-align">
             {isEditing ? (
               editedCustomer.inactiveVehicles &&
@@ -398,9 +407,11 @@ const CustomerDetails = ({
                         }
                       />
                     </div>
-                    <button onClick={() => deleteInactiveVehicle(index)}>
-                      Delete
-                    </button>
+                    <FontAwesomeIcon
+                      icon={faTrashCan}
+                      className="inactive-delete-btn"
+                      onClick={() => deleteInactiveVehicle(index)}
+                    />
                   </div>
                 ))
               ) : (
@@ -419,8 +430,11 @@ const CustomerDetails = ({
                     <div>{vehicle.activeModel}</div>
                   </div>
                   <span>{vehicle.activeYear}</span>
-                  <FontAwesomeIcon icon={faTrashCan}  className="inactive-delete-btn" 
-                  onClick={() =>deleteInactiveVehicle(index)}/>
+                  <FontAwesomeIcon 
+                    icon={faTrashCan}
+                    className="inactive-delete-btn"
+                    onClick={() => deleteInactiveVehicle(index)}
+                  />
                 </div>
               ))
             ) : (
