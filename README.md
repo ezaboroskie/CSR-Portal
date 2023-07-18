@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+## [AMP CSR PORTAL](https://amp-csr-portal.onrender.com)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The AMP CSR Portal is a user friendly solution to customer service on the go. Designed with mobile devices in mind, the AMP CSR Portal allows customer service representatives to:
+- easily locate customers based on various search criteria
+- edit customers' information 
+- view the customers' transaction history 
+- add or remove subscriptions from vehicles 
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- React
+- JSX
+- CSS
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Simply open the application and you will see a list of customers and a search bar.
+2. Either click on the desired customer, or you may search through the list by name, account number, phone number, or email. 
+3. Once a customer is located, clicking on the customer will take you to a detailed view of the customer's information.
+4. You may simply view the information and purchase history of a customer or freely edit the information fields making sure to save your changes if desired. 
+5. If a customer needs to switch subscriptions from one vehicle to the next, it's as easy as adding a new active vehicle by including the make, model, and tag number in the edit fields. 
+6. To add a new subscription vehicle, click on the blue plus symbol next to the active vehicle heading. 
+7. Clicking on a subscribed vehicle will prompt you if you'd like to move that vehicle to inactive where it can then be deleted if desired. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Examples
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="assests/listview.png" alt="list view" width="400" height="auto">
+<img src="assests/detailsview.png" alt="list view" width="400" height="auto">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contact Information
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Eddie Zaboroskie
+- zaboroskie.edward@gmail.com
+- eddiezaboroskie.com
