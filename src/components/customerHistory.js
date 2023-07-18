@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/HistoryStyles.css"
 
-const CustomerHistory = ({ customerList, customerId }) => {
+const CustomerHistory = ({ purchaseHistory, customerId }) => {
   const [historyList, setHistoryList] = useState([]);
 
   useEffect(() => {
@@ -9,6 +9,9 @@ const CustomerHistory = ({ customerList, customerId }) => {
     if (storedPurchaseHistory) {
       const parsedHistoryData = JSON.parse(storedPurchaseHistory);
       setHistoryList(parsedHistoryData);
+    }else{
+        localStorage.setItem("purchaseHistory", JSON.stringify(purchaseHistory))
+        setHistoryList(purchaseHistory)
     }
   }, []);
 

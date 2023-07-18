@@ -9,7 +9,7 @@
 }
 
 .details-top-spacer{
-    height: 1.5vh;
+    height: 2vh;
     background-color: aliceblue;
 }
 
@@ -51,6 +51,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.customer-details-name-heading{
+    padding: 1vh
 }
 
 .customer-details-name-acc-container{

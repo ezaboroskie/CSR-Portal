@@ -134,7 +134,7 @@ const CustomerDetails = ({
               <span className="purchase-history-toggle" onClick={() => setShowHistory(!showHistory)}>
                 {showHistory ? "Hide Purchase History" : "Purchase History"}
               </span>
-              <h3>
+              <h3 className="customer-details-name-heading">
                 {editedCustomer.firstName} {editedCustomer.lastName}
               </h3>
               <div className="customer-details-acc-number-and-status-container">
