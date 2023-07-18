@@ -101,7 +101,7 @@
 
 .customer-details-vehicle-make-and-model-container{
     border: 2px solid #4f93ec ;
-    background-color: lightcyan;
+    background-color: #cbdff8;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
