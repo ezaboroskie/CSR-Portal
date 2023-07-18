@@ -1,6 +1,6 @@
 ## [AMP CSR PORTAL](https://amp-csr-portal.onrender.com)
 
-The AMP CSR Portal is a user friendly solution to customer service on the go. Designed with mobile devices in mind, the AMP CSR Portal allows customer service representatives to:
+The AMP CSR Portal is a user friendly solution for the customer service specialist on the go. Designed with mobile devices in mind, the AMP CSR Portal allows customer service representatives to:
 - easily locate customers based on various search criteria
 - edit customers' information 
 - view the customers' transaction history 
