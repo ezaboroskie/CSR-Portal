@@ -1,0 +1,253 @@
+[
+    {
+      "accountNumber": "2048822934",
+      "purchaseHistory": [
+        {
+          "transactionId": "192838-19380",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-01T09:24:36Z"
+        },
+        {
+          "transactionId": "183752-48593",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-15T14:50:22Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "4928361912",
+      "purchaseHistory": [
+        {
+          "transactionId": "293854-38492",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-07T17:12:59Z"
+        },
+        {
+          "transactionId": "263798-19285",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-02T08:39:10Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "2938475612",
+      "purchaseHistory": [
+        {
+          "transactionId": "182947-56983",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-27T20:17:45Z"
+        },
+        {
+          "transactionId": "275943-12876",
+          "transactionType": "subscription renewal",
+          "transactionDate": "2023-07-13T11:05:18Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "3921874651",
+      "purchaseHistory": [
+        {
+          "transactionId": "349805-56738",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-22T09:57:03Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "7382916451",
+      "purchaseHistory": [
+        {
+          "transactionId": "293874-73647",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-09T13:48:24Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "2846509183",
+      "purchaseHistory": [
+        {
+          "transactionId": "187235-28734",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-30T16:29:41Z"
+        },
+        {
+          "transactionId": "267483-93845",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-05T11:13:57Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "5940182736",
+      "purchaseHistory": [
+        {
+          "transactionId": "253476-92748",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-17T19:42:12Z"
+        },
+        {
+          "transactionId": "273648-37482",
+          "transactionType": "subscription renewal",
+          "transactionDate": "2023-07-11T08:20:06Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "3948561297",
+      "purchaseHistory": [
+        {
+          "transactionId": "298356-75938",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-25T12:56:27Z"
+        },
+        {
+          "transactionId": "257436-98475",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-04T15:01:39Z"
+        },
+        {
+          "transactionId": "369875-29385",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-06T09:48:50Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "9584762103",
+      "purchaseHistory": [
+        {
+          "transactionId": "297832-86457",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-03T18:07:14Z"
+        },
+        {
+          "transactionId": "276489-75832",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-01T10:39:22Z"
+        },
+        {
+          "transactionId": "198237-57643",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-04T22:14:35Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "4729165830",
+      "purchaseHistory": [
+        {
+          "transactionId": "267598-49385",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-18T15:33:01Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "2957384012",
+      "purchaseHistory": [
+        {
+          "transactionId": "283750-29578",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-10T11:55:19Z"
+        },
+        {
+          "transactionId": "287639-47658",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-12T16:47:05Z"
+        },
+        {
+          "transactionId": "192748-36758",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-14T09:29:37Z"
+        },
+        {
+          "transactionId": "257346-27489",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-16T13:15:41Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "8946273102",
+      "purchaseHistory": [
+        {
+          "transactionId": "293856-75839",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-21T14:08:47Z"
+        },
+        {
+          "transactionId": "278534-93745",
+          "transactionType": "subscription renewal",
+          "transactionDate": "2023-07-15T08:43:29Z"
+        },
+        {
+          "transactionId": "276349-48572",
+          "transactionType": "subscription renewal",
+          "transactionDate": "2023-07-17T12:19:56Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "7293810465",
+      "purchaseHistory": [
+        {
+          "transactionId": "297346-59384",
+          "transactionType": "single purchase wash",
+          "transactionDate": "22023-07-19T09:21:56Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "5678129304",
+      "purchaseHistory": [
+        {
+          "transactionId": "298356-75938",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-25T12:56:27Z"
+        },
+        {
+          "transactionId": "257436-98475",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-04T15:01:39Z"
+        },
+        {
+          "transactionId": "369875-29385",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-06T09:48:50Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "3456781290",
+      "purchaseHistory": [
+        {
+          "transactionId": "297832-86457",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-03T18:07:14Z"
+        },
+        {
+          "transactionId": "276489-75832",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-01T10:39:22Z"
+        },
+        {
+          "transactionId": "198237-57643",
+          "transactionType": "single purchase wash",
+          "transactionDate": "2023-07-04T22:14:35Z"
+        }
+      ]
+    },
+    {
+      "accountNumber": "4827301945",
+      "purchaseHistory": [
+        {
+          "transactionId": "267598-49385",
+          "transactionType": "subscription purchase",
+          "transactionDate": "2023-06-18T15:33:01Z"
+        }
+      ]
+    }
+  ]
+  

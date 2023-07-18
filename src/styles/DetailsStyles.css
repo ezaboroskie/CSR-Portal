@@ -31,6 +31,27 @@
    
 }
 
+.purchase-history-toggle{
+    border: 1px solid #4f93ec;
+    background-color: #d39014;
+    padding: .3vh;
+    border-radius: 8px;
+    color: rgb(243, 247, 250)
+}
+.purchase-history-toggle-off{
+    border: 1px solid #4f93ec;
+    background-color: #d39014;
+    padding: .3vh;
+    border-radius: 8px;
+    color: rgb(243, 247, 250)
+}
+
+.customer-history-container{
+    /* border: 1px red solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .customer-details-name-acc-container{
     display: flex;
