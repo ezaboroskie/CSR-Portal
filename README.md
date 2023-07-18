@@ -14,6 +14,8 @@ The AMP CSR Portal is a user friendly solution to customer service on the go. De
 
 ## Usage
 
+[LiveLink](https://amp-csr-portal.onrender.com)
+
 1. Simply open the application and you will see a list of customers and a search bar.
 2. Either click on the desired customer, or you may search through the list by name, account number, phone number, or email. 
 3. Once a customer is located, clicking on the customer will take you to a detailed view of the customer's information.
@@ -25,8 +27,8 @@ The AMP CSR Portal is a user friendly solution to customer service on the go. De
 
 ## Examples
 
-<img src="assests/listview.png" alt="list view" width="400" height="auto">
-<img src="assests/detailsview.png" alt="list view" width="400" height="auto">
+<img src="src/assests/listview.png" alt="list view" width="400" height="auto">
+<img src="src/assests/detailsview.png" alt="list view" width="400" height="auto">
 
 
 ## Contact Information
